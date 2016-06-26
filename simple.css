@@ -1,0 +1,167 @@
+/*
+    This uses a mobile first design
+ */
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+html, body {
+    height: 100%;
+    font-family: "Athiti", "Arial", sans-serif;
+    font-size: 18px;
+    background: #333333;
+}
+input {
+    font-family: "Athiti", "Arial", sans-serif;
+    font-size: 18px;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    /* let's give the page a steady, consistent updward facing margins 
+           this avoids collapsing margin issues
+           upward facing margins looked better spacing wise
+     */
+    margin: 0px;
+    margin-top: 15px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Vesper Libre", "Book Antiqua", "Big Caslon", serif;
+    font-size: 25px;
+    text-align: center;
+    line-height: 1;
+}
+
+a {
+    text-decoration: none;
+    color: #3b3bff;
+}
+
+.main {
+    background: #e9e9e9;
+    min-height: 100%;
+    /* this must match the size of the footer */
+    margin-bottom: -90px;
+}
+
+.about-wrapper {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+
+.logo {
+    width: 100%;
+}
+.logo img {
+    /* this gets rid of a mysterious bottom margin I don't understand */
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.about {
+    padding: 15px;
+}
+
+.store-padded-area {
+    padding: 15px;
+}
+.store h1, .store h2, .store h3, .store h4, .store h5, .store h6 {
+    text-align: left;
+}
+.search-query-wrapper {
+    border-top: 1px solid #b5b5b5;
+    border-bottom: 1px solid #b5b5b5;
+    width: 100%;
+    background: #f0f0f0;
+}
+.search-query-wrapper > * {
+    /* the elements are weirdly aligned to the text baseline by default */
+    vertical-align: top;
+}
+.search-query-wrapper svg {
+    /* since this won't clear anything, the block positioned div will appear
+           on the same line as this svg
+     */
+    float: left;
+    padding: 15px;
+    padding-right: 0px;
+    color: rgba(0, 0, 0, 0.54);
+    fill: rgba(0, 0, 0, 0.54);
+}
+.search-query-wrapper div {
+    /*this has something to do with creating a new block formating context...*/
+    overflow: hidden;
+}
+.search-query-wrapper input {
+    /* this input will fill its contianer width */
+    width: 100%;
+    box-sizing: content-box;
+    border: none;
+    height: 24px;
+    padding: 15px;
+    padding-left: 0px;
+    background: none;
+}
+.main:after {
+    content: "";
+    display: block;
+    height: 90px;
+}
+.footer {
+    box-sizing: border-box;
+    height: 90px;
+    
+    background: #333333;
+    color: #eeeeee;
+    text-align: center;
+}
+
+.navigation {
+    border-top: 1px solid #b5b5b5;
+    background: #c3c3c3;
+    padding: 15px;
+    text-align: center;
+}
+.navigation ul {
+    margin: 0px;
+    padding: 0px;
+    list-style-type: none;
+}
+.navigation li {
+    display: inline;
+    margin-right: 15px;
+}
+.navigation li:last-child {
+    margin-right: 0px;
+}
+
+@media only screen and (min-width: 640px) {
+    /* switch to desktop mode for screens bigger than 640 CSS pixels */
+    .logo img {
+        display: inline;
+        width: 280px;
+        height: 175px;
+    }
+    .logo {
+        /* logo should only take up a small space on bigger screens
+               this element now takes the new logo size
+         */
+        position: absolute;
+        display: inline-block;
+        width: auto;
+        height: 100%;
+        vertical-align: middle;
+    }
+    .about {
+        margin-left: 280px;
+    }
+    .about-wrapper {
+        position: relative;
+        min-height: 175px;
+        /* clear the floated logo */
+        overflow: auto;
+    }
+}
